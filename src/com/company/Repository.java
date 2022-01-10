@@ -3,6 +3,7 @@ package com.company;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Repository {
 
@@ -36,13 +37,18 @@ public class Repository {
         bufferedWriter.close();
     }
 
-    public void writeLocationAndIncome (String fileName, List<Client> list, String character) throws IOException {
+    public void writeLocationAndIncome (String fileName, Map<String, Integer> map) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileName));
-        for (Client client : list) {
-            String line = client.getLocation() + character + client.getIncome();
-            bufferedWriter.write(line);
+        for (Map.Entry<String, Integer> entry :
+                map.entrySet()) {
+
+            bufferedWriter.write(entry.getKey() + ":"
+                    + entry.getValue());
+
             bufferedWriter.newLine();
         }
-    }
+        }
 
 }
+
+
