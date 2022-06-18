@@ -15,6 +15,7 @@ public class Client {
         this.numberOfEmployees = numberOfEmployees;
         this.income = income;
         this.location = location;
+        System.out.println(" Salut ");
     }
 
     public int getIncome() {
